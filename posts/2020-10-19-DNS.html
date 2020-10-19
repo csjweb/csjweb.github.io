@@ -16,7 +16,7 @@
 <p>“kgc.com.” 这是可以改其他的，com. 最好还是保留</p>
 <p>编写ZONE文件</p>
 <p><code>vi /var/named/named/kgc.com.zone</code></p>
-<p> $TTL  1D<br>  IN SOA kgc.com. admin.kgc.com.(<br>                                   0     ; serial<br>                                   1D    ; refresh<br>                                   1H    ; retry<br>                                   1w    ; expire<br>                                   3H )  ; minimum<br>              NS       kgc.com.<br>                  A       192.168.15.100 (自己的ip地址)<br>www  IN    A       192.168.15.101<br>ftp     IN     A       192.168.15.102<br>stmp   IN CNAME        WWW</p>
+<p> $TTL  1D<br>  IN SOA kgc.com. admin.kgc.com.(<br>                                                                    0     ; serial<br>                                                                   1D    ; refresh<br>                                                                    1H    ; retry<br>                                                                     1w    ; expire<br>                                                                     3H )  ; minimum<br>              NS       kgc.com.<br>                  A       192.168.15.100 (自己的ip地址)<br>www  IN    A       192.168.15.101<br>ftp     IN     A       192.168.15.102<br>stmp   IN CNAME        WWW</p>
 <p>设置本地域名解析服务器地址</p>
 <p><code>vi /etc/resolv.conf</code></p>
 <p><img src="https://csjweb.github.io/upload/images/2020/10/19/d23d584a633189fc675cc2d9693bd247-aab77e.png" alt="image-20201019210509396"></p>
