@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>linux 学习与运用 | SJ Chen's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"><meta name="generator" content="Hexo 4.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">linux 学习与运用</h1><a id="logo" href="/.">SJ Chen's Blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">linux 学习与运用</h1><div class="post-meta">2020-10-22</div><div class="post-content"><p>笔者花了一下午的时间，去写了这篇文章。依然对很多命令都不熟悉，其中，也有一些题是在网上搜的。</p>
+<a id="more"></a>
+
+<h2 id="文件和目录类的命令"><a href="#文件和目录类的命令" class="headerlink" title="文件和目录类的命令"></a>文件和目录类的命令</h2><p><strong>利用cp命令复制系统文件/etc/ profile到当前目录下</strong></p>
+<p><code>cp /etc/profile /root/test(当前目录)</code></p>
+<p><strong>什么是当前目录（如，在home，那一定是home目录下，cd test，那当前目录一定是test）</strong></p>
+<p><img src="https://csjweb.github.io/upload/images/2020/10/22/9c4df0a25f0ec05476a4ec452772b0b7-59fe48.png" alt="image-20201022135613409"></p>
+<p><code>cp /etc/profile newfile</code>是/etc/profile 复制到newfile</p>
+<p><strong>复制文件profile 到一个新文件profile.bak 作为备份</strong></p>
+<p><code>cp profile profile.bak</code></p>
+<p><strong>用grep命令在profile文件对关键字then进行查询</strong></p>
+<p><code>grep then profile</code></p>
+<p><strong>用less命令分屏查看文件profile的内容，</strong></p>
+<p><code>less profile</code> </p>
+<p><strong>注意比较练习less命令的各个子命令</strong></p>
+<p><code>- b</code>  移动上一页</p>
+<p><code>- q</code>  退出</p>
+<p><code>- p</code> </p>
+<p><code>less -p then profile</code></p>
+<p> <strong>给文件profile创建一个符号链接Insprofile</strong></p>
+<p> <code>ln -s profile lnsprofile</code></p>
+<p><strong>和硬链接Inhprofile</strong></p>
+<p><code>ln profile lnhprofile</code></p>
+<p><strong>以长格式显示文件 profile lnsprofile lnhprofile ,主要比较不同</strong></p>
+<p><code>ll</code></p>
+<p><strong>如何回到上层目录</strong></p>
+<p><strong><code>cd ..</code>   . 代表一层目录</strong></p>
+<p>tar 的子命令</p>
+<p><code>- c</code>   生成档案文件</p>
+<p><code>- v</code>  列出归档，解档的详细过程</p>
+<p><code>- f</code>  指定档案文件名称</p>
+<p><code>- r</code>  将文件追加到档案文件末尾</p>
+<p><code>- z</code>  以gzip格式压缩或解压缩文件</p>
+<p><code>- j</code>  以bzip2 格式压缩或解压缩文件</p>
+<p><code>- d</code>  比较文档与当前目录的文件</p>
+<p><code>- x</code>  解开档案文件</p>
+<p><strong>用tar命令把test目录打包</strong></p>
+<p><code>tar -zcf test.tar teat</code></p>
+<p><img src="https://csjweb.github.io/upload/images/2020/10/22/75ce605ef7685603619881b228b77ea1-fede9f.png" alt="image-20201022151304958"></p>
+<p><strong>用gzip命令把打好的包进行压缩</strong></p>
+<p><code>gzip test.tar</code></p>
+<p><strong>把文件test.tar.gz 改名为backup .tar.gz</strong></p>
+<p><code>mv test.tar.gz backup.tar.gz</code></p>
+<p><strong>把文件backup.tar.gz 移动到test目录下</strong></p>
+<p><code>mv backup.tar.gz /test</code></p>
+<p><strong>把文件backup.tar.gz 解包</strong></p>
+<p><code>tar - x backup.tar.gz</code></p>
+<p><strong>复制test目录为testbak目录作为备份</strong></p>
+<p><code>cp test testbak</code> </p>
+<p> <strong>查看root 用户自己的主目录下的所有文件名为profile</strong></p>
+<p><code>find -mane profile</code></p>
+<p><strong>删除test 子目录下的所有文件</strong></p>
+<p><code>rm -f test/test*</code></p>
+<h3 id="系统信息命令"><a href="#系统信息命令" class="headerlink" title="系统信息命令"></a>系统信息命令</h3><p><strong>利用data命令显示系统当前的时间，并修改系统当前时间</strong></p>
+<p><code>data</code></p>
+<p><strong>显示当前登录到系统的用户状态</strong></p>
+<p>长时间在用root权限，忘记了自己的用户是什么了</p>
+<p><strong>利用free命令显示内存的使用情况</strong></p>
+<p><img src="https://csjweb.github.io/upload/images/2020/10/22/d9a227b24398a594782ee63913d0ac57-36acba.png" alt="image-20201022180536204"></p>
+<p><strong>利用df命令显示系统硬盘分区及使用情况</strong></p>
+<p><img src="https://csjweb.github.io/upload/images/2020/10/22/b96d4b5d2348dc89c69e359a90da21b2-72fa9f.png" alt="image-20201022180627102"></p>
+<p><strong>显示当前目录下的各级子目录的硬盘占用情况</strong></p>
+<p><code>du -a</code></p>
+<h3 id="进程管理类命令"><a href="#进程管理类命令" class="headerlink" title="进程管理类命令"></a>进程管理类命令</h3><ul>
+<li><p>使用ps命令查看和控制进程</p>
+<p>显示本用户的进程</p>
+<p><code>ps -u</code></p>
+<p>显示所有用户的进程</p>
+<p><code>ps -u root</code></p>
+</li>
+</ul>
+<p>在后台运行cat命令</p>
+<p>查看进程cat</p>
+<p><img src="https://csjweb.github.io/upload/images/2020/10/22/fa5a7d10858333661adae55f4a96d768-748600.png" alt="image-20201022183618186"></p>
+<p><code>ctrl + D</code></p>
+<p>杀死进程cat</p>
+<p>再次查看进程cat，看其是否被杀死</p>
+<ul>
+<li><p>使用top命令查看和控制进程</p>
+<p>用top命令动态显示当前的进程</p>
+<p>只显示用户user01 的进程</p>
+<p>利用k键杀死指定进程号的进程</p>
+</li>
+<li><p>挂起和恢复进程</p>
+<p>执行命令cat</p>
+<p>按Ctrl+Z 组合键挂起进程cat</p>
+<p>输入jobs 命令，查看作业</p>
+<p>输入bg，把cat切换到后台执行</p>
+<p>输入fg，把cat切换到前台执行</p>
+<p>按Ctrl+C 组合键结束进程cat</p>
+</li>
+</ul>
+</div><div class="tags"><a href="/tags/study/"><i class="fa fa-tag"></i>study</a><a href="/tags/linux/"><i class="fa fa-tag"></i>linux</a></div><div class="post-nav"><a class="next" href="/posts/2020-10-22-i-think-what-i-learn-someing.html">我学了什么</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/Life/" style="font-size: 15px;">Life</a> <a href="/tags/Study/" style="font-size: 15px;">Study</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Game/" style="font-size: 15px;">Game</a> <a href="/tags/live/" style="font-size: 15px;">live</a> <a href="/tags/study/" style="font-size: 15px;">study</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/photo/" style="font-size: 15px;">photo</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/lives/" style="font-size: 15px;">lives</a> <a href="/tags/think/" style="font-size: 15px;">think</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-22-linux-learn.html">linux 学习与运用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-22-i-think-what-i-learn-someing.html">我学了什么</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-20-be-down-in-spirits.html">Be-Down-In-Spirits</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-19-DNS.html">DNS的配置</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-18-new-photos.html">new-photos</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-18-How-to-create-hexo-notes.html">如何创建hexo的笔记呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-17-life-think.html">生活随想</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-17-python-guess-number-game.html">Python 猜数字游戏</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2020-10-17-good-day.html">Good Day</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/first-post.html">我的第一篇博客</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">SJ Chen's Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
